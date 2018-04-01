@@ -208,6 +208,9 @@ display: table !important; margin: 0 auto !important; background: #eee;
 	.site-menu {
 		position:relative !important;
 	}
+	main.extrato-pontos section.bg-caminhoes{
+		display: none;
+	}
     .c-logo { 
 		display:none;
 	}
