@@ -34,6 +34,26 @@
             padding: 10px 15px;
         }
     }
+    main .funcionamento{
+		.owl-nav{
+			font-size: 34px;
+            color: #FFF;
+            position: absolute;
+            width: 100%;
+            top: 0px;
+			button{
+				color: #FFF;
+                font-size: 44px;
+                width: 50px;
+                &.owl-prev{
+                    float: left;
+                }
+                &.owl-next{
+                    float: right;
+                }
+			}
+		}
+	}
 }
 
 @media (max-width: 450px) {

@@ -1516,6 +1516,7 @@ header nav .nav-superior br,
 // RESPONSIVO
 
 @media screen and (max-width: 768px) {
+	
 	div#navbarNav.show {
 	    display: block !important;
 	}
@@ -2084,7 +2085,16 @@ header nav .nav-superior .dropdown {
 	    padding-bottom: 30px;
 	    padding-top: 35px;
 	}
-
+	main .funcionamento{
+		.owl-nav{
+			font-size: 34px;
+			color: #FFF;
+			button{
+				color: #FFF;
+				font-size: 34px;
+			}
+		}
+	}
 	main.home-naologado .funcionamento h2 {
 	    font-size: 30px;
 	}
@@ -2333,5 +2343,7 @@ header nav .nav-superior .dropdown {
 			margin-left:auto;
 		}
 	}
+
+	
 
 }

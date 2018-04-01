@@ -23,7 +23,9 @@
                 margin:10,
                 responsive:{
                     0:{
-                        items:1
+                        items:1,
+                        nav: true,
+                        loop: true
                     },
                     1000:{
                         items:4
