@@ -122,7 +122,7 @@
 						<div class="right">
 							<p class="font-14"><strong>Estrelas a vencer:</strong></p>
 							<p class="pontos font-30">000 estrelas</p>
-							<p class="desc font-14">Resgate já e aproveite os descontos em nossos parceiros.</p>
+							<p class="desc font-14">Aproveite os descontos em nossos parceiros.</p>
 						</div>
 					</div>
 				</div>
@@ -172,10 +172,10 @@
 					<h1 class="font-corporate font-50 text-center">Em Breve</h1>
 				</div>
 			</div>
-			<div class="container-fluid" ng-show="simulado">
+			<div class="container-fluid" ng-show="!simulado">
 				<div class="row">
 					<h1 class="font-corporate font-50 text-center">Simulador de pontos</h1>
-					<p class="font-14">Vantagem de verdade é ter desconto em peças. Indique no campo abaixo quantos pontos você quer resgatar e veja o percentual de desconto que você ganha na compra de peças genuínas Mercedes-Benz. <strong>Lembre-se: quanto mais pontos para resgate, maior o desconto.</strong></p>
+					<p class="font-14">Vantagem de verdade é ter desconto em peças. Indique no campo abaixo quantos pontos você quer resgatar e veja o percentual de desconto que você ganha na compra de peças e serviços nos concessionários participantes​. <strong>Lembre-se: quanto mais pontos para resgate, maior o desconto.</strong></p>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
@@ -191,9 +191,9 @@
 								<div class="col-md-4 box mb-4">
 									<div class="box-calc-pontos">
 										<form>
-											<input type="text" class="form-control mt-0" name="" placeholder="000 pontos" ng-model="simulator.points">
+											<input type="text" class="form-control mt-0" name="" placeholder="000 pontos" ng-model="simulator.points" maxlength="14">
 											<button class="btn btn-info btn-block mb-0" ng-click="simulator.calculator();">Calcular</button>
-											<p class="font-14 mt-3" ng-show="simulator.pointsConverted">Desconto de <span class="font-30">{{simulator.pointsConverted}}</span> em peças</p>
+											<p class="font-14 mt-3" ng-show="simulator.pointsConverted">Desconto de<br><span class="font-30">{{simulator.pointsConverted}}</span><br>em peças e/ou serviços participantes​</p>
 										</form>
 									</div>
 								</div>
