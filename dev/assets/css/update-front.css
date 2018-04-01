@@ -210,6 +210,10 @@ display: table !important; margin: 0 auto !important; background: #eee;
     left: 0;
     top: -69px;
 }
+.formulario-contato{
+	margin: auto;
+	max-width: 800px
+}
 @media only screen and (max-width: 768px) {
 	.requisitos-do-sistema{
 		display: none;
