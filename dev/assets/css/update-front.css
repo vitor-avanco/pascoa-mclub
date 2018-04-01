@@ -202,7 +202,11 @@ display: table !important; margin: 0 auto !important; background: #eee;
 .box-meta-in {
 	background: #eee;
 }
-
+.logo-club.logo-club-menu{
+	position: absolute;
+    left: 0;
+    top: -69px;
+}
 @media only screen and (max-width: 768px) {
 	/* For mobile phones: */
 	.site-menu {
@@ -259,5 +263,8 @@ display: table !important; margin: 0 auto !important; background: #eee;
 	}
 	.top-bar {
 		width:100% !important;
+	}
+	.logo-club.logo-club-md-hidden{
+		display: none;
 	}
 }
