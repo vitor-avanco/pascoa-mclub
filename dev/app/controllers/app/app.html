@@ -1,0 +1,326 @@
+<div class="geral" ng-init="app.init()">
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-header">
+				<div class="col-2 c-logo">
+					<a href="#">
+						<img src="./assets/img/logo-star-name.png" class="logo" alt="Logo Mercedes Club">
+					</a>
+				</div>
+				<div class="col-md-10 col-xs-12 nav-header-bar">
+					<div class="row">
+						<div class="col-md-10 c-menu">
+							<div class="top-bar position-relative float-right" ng-if="safe.userResume.realizouPrimeiroAcesso">
+								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="menu-mobile"></span>
+									<span class="menu-mobile"></span>
+									<span class="menu-mobile"></span>
+								</button>
+								<div class="collapse navbar-collapse" id="navbarNav">
+									<div class="usuario-infos">
+										<div class="nav-superior mb-0">
+											<!--
+											<img src="./assets/img/icon-mensagens.png" alt="mensagem" class="msg"> <span class="mr">Mensagens</span>
+											<br>
+											-->
+											<img src="./assets/img/icon-star.png" alt="star" class="star align-star"><span class="destaque">{{participantPoints}}</span> pontos | <span class="destaque">{{participantStars}}</span> <span class="mr"> estrelas</span>
+											<!-- <img src="http://via.placeholder.com/33x33" alt="usuario" class="user"> -->
+											<div class="dropdown">
+												<a data-user-email="{{ safe.userResume.email }}" class="dropdown-toggle" href="#" role="button" id="dropdownUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Olá, <span class="destaque">{{ safe.userResume.nome }}</span></a>
+												<div class="dropdown-menu welcome" aria-labelledby="dropdownUsuario">
+													<a class="dropdown-item" ui-sref="app.profile" style="color:#000">Meu perfil</a>
+													<a class="dropdown-item" ui-sref="app.home" ng-click="app.logout()" style="color:#000">Sair</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="site-menu pt-3 mt-3 position-absolute">
+										<ul class="navbar-nav">
+											<li class="nav-item">
+												<a class="font-14" ui-sref="app.operation" ng-click="app.asideHide()">
+													Como funciona
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="font-14" ui-sref="app.news" ng-click="app.asideHide()">
+												Notícias
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="font-14" ui-sref="app.catalog" ng-click="app.asideHide()">
+													Catálogo de Benefícios
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="font-14" ui-sref="app.indication" ng-click="app.asideHide()">
+													Indicar amigo
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="font-14" ui-sref="app.dealership" ng-click="app.asideHide()">
+													Concessionário
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="font-14" ui-sref="app.contact" ng-click="app.asideHide()">
+													Fale Conosco
+												</a>
+											</li>
+											<!--
+											<li class="nav-item">
+												<a ui-sref="app.partness" ng-click="app.asideHide()">
+												Parceiros
+												</a>
+											</li>
+											-->
+											<li class="nav-item">
+												<a class="font-14" ui-sref="app.faq" ng-click="app.asideHide()">
+												FAQ
+												</a>
+											</li>
+											<li class="nav-item">
+												<a ui-sref="app.simulator" ng-click="app.asideHide()">
+												Simulador
+												</a>
+											</li>
+											<li class="nav-item show-mobile">
+												<a ng-click="app.logout()">
+												Sair
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="overlay-menu"></div>
+							</div>
+						</div>
+						<div class="text-md-right text-xs-left col-md-2 align-md-self-end" >
+							<a href="#">
+								<img src="./assets/img/logo-mercedes-club.png" class="logo-club" alt="Logo Mercedes Club">
+							</a>
+						</div>
+					</div>
+				</div>
+		</nav>
+	</header>
+
+	<!--==== View ====-->
+	<ui-view></ui-view>
+	<!--==== View ====-->
+	
+	<div class="container-fluid" ng-if="safe.userResume.realizouPrimeiroAcesso">
+		<div class="row">
+			<section class="subfooter">
+				<div class="container">
+					<ul class="col-md-3 offset-md-1">
+						<li class="titulo font-corporate">Institucional</li>
+						<li>
+							<a ui-sref="app.operation">
+								Como funciona
+							</a>
+						</li>
+						<li>
+							<a ui-sref="app.news">
+								Notícias
+							</a>
+						</li>
+						<li>
+							<a ui-sref="app.catalog">
+								Catálogo de Benefícios
+							</a>
+						</li>
+						<li>
+							<a ui-sref="app.indication">
+								Indicar amigo
+							</a>
+						</li>
+						<li>
+							<a ui-sref="app.dealership">
+								Concessionários
+							</a>
+						</li>
+						<li>
+							<a ui-sref="app.contact">
+								Fale conosco
+							</a>
+						</li>
+					</ul>
+					<ul class="col-md-3">
+						<li class="titulo font-corporate">Atendimento</li>
+						<!--<li>
+							<a href="tel:08009709090">
+								CRC: 0800 970 9090
+							</a>
+						</li>-->
+						<li>
+							<a href="//www.mercedes-benz.com.br" target="_blank">
+								www.mercedes-benz.com.br
+							</a>
+						</li>
+						<li>
+							<a href="mailto:faleconosco@mercedesclub.com.br">
+								faleconosco@mercedesclub.com.br
+							</a>
+						</li>
+						<li>
+							<a href="tel:08007726009">
+								0800 772 60 09
+							</a>
+						</li>
+					</ul>
+					<ul class="col-md-2">
+						<li class="titulo font-corporate">Legal</li>
+						<li>
+							<a ui-sref="app.registerTerms">
+								Termos de uso
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</div>
+	<footer>
+		<div class="container-fluid">
+			<div class="row">
+					<p class="r-direitos col-md-6">2018 Mercedes-Benz Brasil</p>
+					<p class="col-md-6 redes-sociais">
+						<!--<a href="https://www.instagram.com/mercedesbenz_caminhoes/" target="_blank">
+							<img src="assets/img/instagram_white.png" alt="Instagram" title="Instagram">
+						</a>
+						<a href="https://twitter.com/mercedesbenzbr" target="_blank">
+							<img src="assets/img/twitter_white.png" alt="Twitter" title="Twitter">
+						</a>-->
+						<a href="https://www.facebook.com/mercedesbenzcaminhoes/" target="_blank">
+							<img src="assets/img/facebook_white.png" alt="Facebook Caminhões" title="Facebook Caminhões">
+							Caminhões
+						</a>
+						<a href="https://www.facebook.com/mercedesbenzonibus/" target="_blank">
+							<img src="assets/img/facebook_white.png" alt="Facebook Ônibus" title="Facebook Ônibus">
+							Ônibus
+						</a>
+						<a href="https://www.youtube.com/user/MercedesBenzBrasil" target="_blank">
+							<img src="assets/img/youtube_white.png" alt="Youtube" title="Youtube">
+							Youtube
+						</a>
+						<span class="r-crc d-block float-right px-3 mx-3 text-white border-left">0800 772 60 09</span>
+					</p>
+			</div>
+		</div>
+	</footer>
+	<!--
+	<div class="modal" tabindex="-1" role="dialog" id="modalCadastro" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">				
+				<div class="modal-body">
+					<h5>Parabéns, você já está participando do programa!</h5>
+					<p>Mas para começar a pontuar, você precisa completar o seu cadastro.</p>
+					<p>Deseja completar?</p>
+					<a class="btn btn-light">Finalizar</a>
+					<a class="btn btn-info">Sim</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+	
+	<div class="modal" tabindex="-1" role="dialog" id="modalCadastro2" aria-hidden="true" ng-click="app.goToHome()">
+		<div class="modal-dialog" role="">
+			<div class="modal-content">
+				<div class="modal-body">					
+					<div class="row">
+						<div class="col-md-12">
+							<p class="text-center my-0">
+								<img src="assets/img/tick.png" />
+							</p>
+							<h2>
+									Seu cadastro foi realizado com sucesso!
+							</h2>
+							<h5>Você receberá em sua caixa postal um e-mail para concluir sua ativação no programa.</h5>							
+						</div>
+					</div>
+					<div class="row text-center">
+						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-8"><button class="btn btn-info" onclick="$('#modalCadastro2').modal('hide');">OK</button></div>
+						<div class="col-md-2">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="modalConfirmacao" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">				
+				<div class="modal-body text-center">
+					<div class="row text-center">
+						<div class="col-md-12">
+								<p class="text-center my-0">
+									<img src="assets/img/information.png" />
+								</p>
+								<h2>
+										Por favor, confirme seu cadastro!
+								</h2>
+								<h5>Você recebeu em sua caixa postal um e-mail para concluir sua ativação no programa.</h5>
+						</div>
+					</div>
+					<div class="row text-center">
+						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-8"><button class="btn btn-info" onclick="$('#modalConfirmacao').modal('hide');">OK</button></div>
+						<div class="col-md-2">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="modalInvalido" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="row">
+						<div class="col-md-12">
+							<p class="text-center my-0">
+								<img src="assets/img/icon-alert.png" />
+							</p>
+							<h2>
+								Ops!
+							</h2>
+							<h5>Preencha corretamente os campos em vermelho.</h5>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-8" style="text-align:left">
+							<ul id="invalidFields"></ul>
+						</div>	
+						<div class="col-md-2">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-8"><button class="btn btn-info" onclick="$('#modalInvalido').modal('hide');">OK</button></div>
+						<div class="col-md-2">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="modalTermos" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="row">
+						<div class="col-md-12"><h5>Termos de uso</h5></div>
+					</div>
+					<div class="row" style="text-align: justify;height: 400px;overflow-y: scroll;padding-left: 15px;padding-right: 15px;">
+						<div>
+							<p>Todas as suas informações pessoais recolhidas, serão usadas para o ajudar a tornar a sua visita no nosso site o mais produtiva e agradável possível.</p><p>A garantia da confidencialidade dos dados pessoais dos utilizadores do nosso site é importante para o Mercedes Clube.</p><p>Todas as informações pessoais relativas a membros, assinantes, clientes ou visitantes que usem o Mercedes Clube serão tratadas em concordância com a Lei da Proteção de Dados Pessoais de 26 de outubro de 1998 (Lei n.º 67/98).</p><p>A informação pessoal recolhida pode incluir o seu nome, e-mail, número de telefone e/ou telemóvel, morada, data de nascimento e/ou outros.</p><p>O uso do Mercedes Clube pressupõe a aceitação deste Acordo de privacidade. A equipa do Mercedes Clube reserva-se ao direito de alterar este acordo sem aviso prévio. Deste modo, recomendamos que consulte a nossa política de privacidade com regularidade de forma a estar sempre atualizado.</p><h2>Os anúncios</h2><p>Tal como outros websites, coletamos e utilizamos informação contida nos anúncios. A informação contida nos anúncios, inclui o seu endereço IP (Internet Protocol), o seu ISP (Internet Service Provider, como o Sapo, Clix, ou outro), o browser que utilizou ao visitar o nosso website (como o Internet Explorer ou o Firefox), o tempo da sua visita e que páginas visitou dentro do nosso website.</p><h2>Os Cookies e Web Beacons</h2><p>Utilizamos cookies para armazenar informação, tais como as suas preferências pessoas quando visita o nosso website. Isto poderá incluir um simples popup, ou uma ligação em vários serviços que providenciamos, tais como fóruns.</p><p>Em adição também utilizamos publicidade de terceiros no nosso website para suportar os custos de manutenção. Alguns destes publicitários, poderão utilizar tecnologias como os cookies e/ou web beacons quando publicitam no nosso website, o que fará com que esses publicitários (como o Google através do Google AdSense) também recebam a sua informação pessoal, como o endereço IP, o seu ISP, o seu browser, etc. Esta função é geralmente utilizada para geotargeting (mostrar publicidade de Lisboa apenas aos leitores oriundos de Lisboa por ex.) ou apresentar publicidade direcionada a um tipo de utilizador (como mostrar publicidade de restaurante a um utilizador que visita sites de culinária regularmente, por ex.).</p><p>Você detém o poder de desligar os seus cookies, nas opções do seu browser, ou efetuando alterações nas ferramentas de programas Anti-Virus, como o Norton Internet Security. No entanto, isso poderá alterar a forma como interage com o nosso website, ou outros websites. Isso poderá afetar ou não permitir que faça logins em programas, sites ou fóruns da nossa e de outras redes.</p><h2>Ligações a Sites de terceiros</h2><p>O Mercedes Clube possui ligações para outros sites, os quais, a nosso ver, podem conter informações / ferramentas úteis para os nossos visitantes. A nossa política de privacidade não é aplicada a sites de terceiros, pelo que, caso visite outro site a partir do nosso deverá ler a politica de privacidade do mesmo.</p><p>Não nos responsabilizamos pela política de privacidade ou conteúdo presente nesses mesmos sites.</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-8"><button class="btn btn-info" onclick="$('#modalTermos').modal('hide');">Fechar</button></div>
+						<div class="col-md-2">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<main class="noticias" ng-init="news.init()">
+	<div class="container-fluid">
+		<section class="descricao">
+			<h1 class="font-corporate font-50 text-center">Notícias</h1>
+			<div class="container">
+				<div class="row">
+					<div repeater-end class="col-md-3 col-12" ng-repeat="new in news.list track by $index">
+						<a ui-sref="app.newsSingle({ id : new.noticiaId })">
+							<div style="background-image:url('{{ new.imagemThumbnail.url }}')" class="img-thumbnail-custom w-100">
+
+							</div>
+							<p class="mt-3 font-14 text-center text-md-left">{{ new.titulo }}</p>
+						</a>
+					</div>
+				</div>
+				<!-- <img src="./assets/img/refresh.png" class="mx-auto d-block refresh"> -->
+			</div>
+		</section>
+	</div>
+</main>

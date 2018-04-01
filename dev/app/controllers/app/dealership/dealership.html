@@ -1,0 +1,42 @@
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM2NpX-nR5irle1jtqlxYWRuE4xNOEcA8&libraries=places" async defer>
+</script>
+
+<main class="encontre-concessionaria" ng-init="dealership.init()">
+	
+	<div class="container-fluid">
+		<div class="row" >
+			<div class="col-12 my-0 px-0">
+				<section class="intro intro-hand px-3">
+					<h1 class="font-corporate font-50 mt-0 pt-4">Encontre um concessionário</h1>
+					<p class="font-14"><strong>Tem sempre uma estrela perto de você.</strong> Digite o endereço e clique no botão. Depois, é só localizar no mapa os concessionários Mercedes-Benz mais próximas.</p>
+					<form class="form-inline">
+						<input style="width: 100%" id="pac-input" class="form-control controls" type="text" id="localizacao" placeholder="Digite seu endereço para encontrar um concessionário próxima.">
+					</form>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<section class="descricao position-relative">
+				<div id="mapholder"></div>
+				<div class="bg-mapa w-100 position-absolute">
+					<div class="container" ng-show="dealerships">
+						<div class="row row-eq-height">
+							<div class="col-md-4" ng-repeat="dealership in dealerships">
+								<div class="localizacao mt-0 px-2 py-2">
+									<p class="titulo">{{dealership.Denominacao}}</p>
+									<p class="desc1">{{dealership.Endereco}}</p>
+									<p class="desc1">Distância: {{dealership.KMDistancia}} km</p>
+									<p class="desc">Telefone: {{dealership.Fone}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</main>

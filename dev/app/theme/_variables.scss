@@ -1,0 +1,9 @@
+$timer-standard:   .4s;
+$timer-very-rapid: $timer-standard * 0.25;
+$timer-rapid:      $timer-standard * 0.5;
+$timer-slow:       $timer-standard * 1.5;
+$timer-very-slow:  $timer-standard * 2;
+
+$color-light:  white;
+$color-dark:   black;
+$color-shadow: rgba($color-dark, .8);

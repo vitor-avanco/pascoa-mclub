@@ -1,0 +1,314 @@
+<main class="editar-perfil" ng-init="profile.init()">
+    <div class="container-fluid">
+        <section class="descricao" ng-if="safe.userResume.realizouPrimeiroAcesso">
+            <div class="container">
+                <div class="row">
+                    <h1 class="font-corporate font-50">Editar perfil</h1>
+                    <p>Atualizar as informações de cadastro é muito importante para continuar participando do Mercedes Club
+                        e aproveitar as vantagens. Digite os dados que tiveram alguma alteração e depois clique em "salvar".</p>
+                </div>
+            </div>
+        </section>
+        <section class="cadastro">
+            <div class="container">
+                <!--
+					<div class="row">
+						<div class="outros-logins col-md-12">
+							<div class="">
+								<button class="btn btn-block btn-light fb">Carregar perfil</button>
+							</div>
+							<div class="">
+								<button class="btn btn-block btn-light gplus">Carregar perfil</button>
+							</div>
+						</div>
+					</div>
+					-->
+                <div class="">
+                    <form novalidate id="cadastro" autocomplete="off" name="profile.form" ng-if="!profile.firstFlux" ng-submit="profile.editCadastro(safe.userResume.realizouPrimeiroAcesso)">
+                        <div class="row set-validation" ng-if="safe.userResume.realizouPrimeiroAcesso">
+                            <div class="col-md-4">
+                                <input ui-br-cpf-mask type="text" class="form-control" name="" placeholder="CPF" ng-disabled="true" ng-model="profile.fields.identification" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input required pattern="[a-zA-Z\ ]{2,}" type="text" class="form-control" name="" placeholder="Nome" ng-model="profile.fields.name" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" type="email" class="form-control" name="" placeholder="E-mail"
+                                    ng-model="profile.fields.email" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input required mask="(99) 99999?-9999" ng-minlength="12" type="text" class="form-control" name="" placeholder="Telefone"
+                                    ng-model="profile.fields.phone" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input ui-br-cnpj-mask type="text" class="form-control" name="" placeholder="CNPJ da empresa onde trabalha" ng-disabled="true"
+                                    ng-model="profile.fields.companyCNPJ" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="novidades" ng-model="profile.fields.news" ng-checked="profile.fields.news">
+                                    <label class="form-check-label" for="novidades">
+                                        Desejo receber novidades Mercedes-Benz
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dados-pessoais row set-validation">
+                            <div class="col-md-12">
+                                <p class="px-0">Dados Pessoais</p>
+                            </div>
+                            <div class="col-md-4">
+                                <input required ui-br-cep-mask type="text" class="form-control" name="" ng-model="profile.dadosPessoais.cep" ng-change="loadCep(profile.dadosPessoais.cep)"
+                                    placeholder="CEP" autocomplete="off">
+                            </div>
+                            <div class="col-md-8">
+                                <input required type="text" class="form-control" name="" ng-model="profile.dadosPessoais.logradouro" placeholder="Endereço" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input required type="text" class="form-control" name="" ng-model="profile.dadosPessoais.numero" placeholder="Número" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="" ng-model="profile.dadosPessoais.complemento" placeholder="Complemento" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input required type="text" class="form-control" name="" ng-model="profile.dadosPessoais.bairro" placeholder="Bairro" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <select required class="form-control is-select" ng-model="profile.endereco.uf" ng-change="profile.getCidade(profile.endereco.uf);"
+                                    style="height:48px;margin-bottom: 15px;" placeholder="Estado" autocomplete="off">
+                                    <option value="" disabled selected hidden>Estado</option>
+                                    <option ng-repeat="state in endereco.ufs" ng-value="state.ufId">{{state.sigla}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select required class="form-control is-select" ng-model="profile.endereco.cidade" style="height:48px;margin-bottom: 15px;"
+                                    placeholder="Cidade" autocomplete="off">
+                                    <option value="" disabled selected hidden>Cidade</option>
+                                    <option ng-repeat="city in endereco.cidades" ng-value="city.cidadeId">{{city.nome}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" name="" class="form-control" ng-model="profile.dadosPessoais.razaoSocial" placeholder="Razão social" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" name="" class="form-control" ng-model="profile.dadosPessoais.nomeFantasia" placeholder="Nome fantasia" autocomplete="off">
+                            </div>
+                            <div class="col-md-4">
+                                <select required class="form-control is-select" ng-model="profile.dadosPessoais.sexo" style="height:48px;margin-bottom: 15px;"
+                                    placeholder="Sexo" autocomplete="off">
+                                    <option value="" disabled selected hidden>Sexo</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Feminino</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select required class="form-control is-select" ng-model="profile.dadosPessoais.estadoCivil" style="height:48px;margin-bottom: 15px;" placeholder="Estado Civil" autocomplete="off">
+                                    <option value="" disabled selected hidden>Estado Civil</option>
+                                    <option value="1">Solteiro (a)</option>
+                                    <option value="2">Casado (a)</option>
+                                    <option value="3">Separado (a)</option>
+                                    <option value="4">Divorciado (a)</option>
+                                    <option value="5">Viúvo (a)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input required mask="39/19/2999" maxlength="10" type="text" class="form-control" name="" ng-class="{ 'invalid' : !dataValidate() }"
+                                    ng-model="profile.dadosPessoais.dataNascimento" placeholder="Data de Nascimento" autocomplete="off">
+                            </div>
+                            <div class="col-md-12 text-center" style="margin-bottom:40px;">
+                                <button class="btn btn-info">{{ safe.userResume.realizouPrimeiroAcesso ? 'Salvar Cadastro' : 'Próximo' }}</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form novalidate id="listVeiculo" autocomplete="off" name="profile.formVeiculo" ng-if="profile.firstFlux || safe.userResume.realizouPrimeiroAcesso">
+                        <div class="dados-veiculo row set-validation">
+                            <div class="col-md-12">
+                                <p class="px-0">Dados dos veículos</p>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table  table-bordered">
+                                    <thead ng-if="profile.veiculos.length">
+                                        <tr>
+                                            <th>Categoria</th>
+                                            <th>Modelo</th>
+                                            <th>Ano</th>
+                                            <th>Placa</th>
+                                            <th>Chassi</th>
+                                            <th>img</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="veiculo in profile.veiculos">
+                                            <td>{{veiculo.categoriaDescricao}}</td>
+                                            <td>{{veiculo.modeloDescricao}}</td>
+                                            <td>{{veiculo.ano}}</td>
+                                            <td>{{veiculo.placa}}</td>
+                                            <td>{{veiculo.chassi}}</td>
+                                            <td>
+                                                <a href="{{veiculo.arquivo}}" target="_blank" style="height:auto; text-align:center" class="btn btn-sm btn-info">Documento</a>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger" style="height:auto; text-align:center" ng-click="profile.deleteVeiculoCall(veiculo.veiculoId)">excluir</button>
+                                            </td>
+                                        </tr>
+                                        <tr ng-if="!profile.veiculos.length">
+                                            <td colspan="6" class="text-center"> Não ha veículos cadastrados </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                    <form novalidate id="cadastroVeiculo" autocomplete="off" name="profile.formVeiculo" ng-if="profile.firstFlux || safe.userResume.realizouPrimeiroAcesso" ng-submit="profile.editVeiculo()">
+                        <div class="dados-veiculo row set-validation">
+                            <div class="col-md-4">
+                                <select ng-model="profile.dadosVeiculo.categoria" required name="s1" class="form-control" style="height:48px;margin-bottom: 15px;" placeholder="Categoria" ng-options="item1.value as item1.text for item1 in dropCategoria">  
+                                    <option value="" disabled selected hidden>Categoria do veículo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select ng-model="profile.dadosVeiculo.modelo" required name="s2" class="form-control" style="height:48px;margin-bottom: 15px;" placeholder="Modelo" ng-options="item2.value as item2.text for item2 in dropModelo | filter:{ item : profile.dadosVeiculo.categoria }" ng-disabled="!profile.dadosVeiculo.categoria">  
+                                    <option value="" disabled selected hidden>Modelo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input required mask="9999" pattern="[0-9]{4}" type="text" class="form-control" name="" ng-model="profile.dadosVeiculo.ano"
+                                    maxlength="4" placeholder="Ano">
+                            </div>
+                            <div class="col-md-4">
+                                <input required mask="@@@9999" pattern="[a-zA-Z]{3}[0-9]{4}" type="text" class="form-control" name="" ng-model="profile.dadosVeiculo.placa"
+                                    placeholder="Placa">
+                            </div>
+                            <div class="col-md-4">
+                                <input required pattern="[\\W\\w]{17}" minlength="17" maxlength="17" type="text" class="form-control" name="" ng-model="profile.dadosVeiculo.chassi"
+                                    placeholder="Número do chassi do veículo (17 caracteres)">
+                            </div>
+                            <div class="col-md-4">
+                                <button ngf-select="uploadFiles($files, $invalidFiles)" single accept=".jpg, .png" ngf-max-size="5MB" style="font-size:16px; padding-left:10px; padding-right:10px;"
+                                    class="btn btn-default mr10 mt20 upload-field invalid" ng-class="{ 'valid' : profile.dadosVeiculo.urlFile }">
+                                    Selecionar a imagem do DUT
+                                </button>
+                                <label style="padding-right:20px">Extensões: .png ou .jpg</label>
+                                <div class="col-sm-12">
+                                    <ul style="text-align:center; list-style:none">
+                                        <li ng-repeat="f in files" style="font:smaller; width:200px">
+                                            {{f.name}} {{f.$errorParam}}
+                                            <span class="progress" ng-show="f.progress >= 0">
+                                                <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+                                            </span>
+                                        </li>
+                                        <li ng-repeat="f in errFiles" style="font:smaller; color:#f00">
+                                            <strong>Erro:</strong> {{f.name}}
+                                            <br />Tamanho máximo do arquivo: {{f.$errorParam}}
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!---->
+                        <div class="col-md-12 text-center" style="margin-bottom:40px;">
+                            <a ng-if="profile.firstFlux" class="btn btn-info" id="btnPularEtapa" ng-click="safe.userResume.realizouPrimeiroAcesso = true" ui-sref="app.home" style="line-height: 34px;">
+                                <span ng-if="!profile.firstFluxBtnFinalizar">Pular esta etapa</span>
+                                <span ng-if="profile.firstFluxBtnFinalizar">Finalizar esta Etapa</span>
+                            </a>
+                            <button class="btn btn-info">Cadastrar Veículo</button>
+                        </div>
+                    </form>
+                    
+                    <form novalidate id="cadastroSenha" autocomplete="off" name="profile.formSenha" ng-if="safe.userResume.realizouPrimeiroAcesso"
+                        ng-submit="profile.editSenha()" class="w-100">
+                        <div class="dados-veiculo row set-validation">
+                            <div class="col-md-12">
+                                <p class="px-0">Dados de Acesso</p>
+                            </div>
+                            <div class="col-md-6">
+                                <input required ng-minlength="6" type="password" class="form-control" name="" ng-model="profile.dadosSenha.nova" placeholder="Senha (letra maiúsculas, minúsculas, números e caractere especial)">
+                            </div>
+                            <div class="col-md-6">
+                                <input required type="password" class="form-control {{ profile.dadosSenha.nova == profile.dadosSenha.conf ? 'ng-valid' : 'ng-invalid' }}"
+                                    ng-model="profile.dadosSenha.conf" placeholder="Confirmação de Senha">
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center" style="margin-bottom:40px;">
+                            <button class="btn btn-info">Alterar Senha</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+        </section>
+        </div>
+</main>
+<div class="modal" tabindex="-1" role="dialog" id="modalCadastroAlterado" aria-hidden="true" ng-click="goToHome()">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="row text-center" style="padding-top: 10px;">
+                <div class="col-md-12">
+                    <p class="text-center my-0">
+                        <img src="assets/img/tick.png" />
+                    </p>	
+    
+                    <h5>Cadastro alterado com sucesso!</h5>
+                </div>
+            </div>
+            <div class="row text-center" style="padding-bottom: 10px;">
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-8">
+                    <button class="btn btn-info" onclick="$('#modalCadastroAlterado').modal('hide');">OK</button>
+                </div>
+                <div class="col-md-2">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalCadastroVeiculo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <p class="text-center my-0">
+                        <img src="assets/img/tick.png" />
+                    </p>	
+    
+                    <h5>Veículo cadastrado com sucesso!</h5>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-2">&nbsp;</div>
+                <div class="col-md-8">
+                    <button class="btn btn-info" onclick="$('#modalCadastroVeiculo').modal('hide');">OK</button>
+                </div>
+                <div class="col-md-2">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="modalExcluirVeiculo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <p class="text-center my-0">
+                            <img src="assets/img/information.png" />
+                        </p>	
+
+                        <h5>Tem certeza que deseja excluir ?</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">&nbsp;</div>
+                    <div class="col-md-6">
+                        <button class="btn btn-info text-center" ng-click="profile.deleteVeiculo()" onclick="$('#modalExcluirVeiculo').modal('hide');">Sim</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info text-center" onclick="$('#modalExcluirVeiculo').modal('hide');">Não</button>
+                    </div>
+                    <div class="col-md-3">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

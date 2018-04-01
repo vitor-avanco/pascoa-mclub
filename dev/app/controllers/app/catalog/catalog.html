@@ -1,0 +1,15 @@
+<main class="catalog" ng-init="catalog.init()">
+    <div class="container-fluid">
+        <section class="temp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="font-corporate font-50 text-center mb-5">Acessando o Catálogo de Benefícios <img src="assets/img/loader.gif" border="0" width="50" ng-show="!catalog.link"/></h1>
+                        <p class="text-center" ng-show="catalog.link">Seu catálogo será aberto automaticamente. Caso não ocorra, <a href="{{catalog.link}}" target="_blank">clique aqui</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </div>
+</main>

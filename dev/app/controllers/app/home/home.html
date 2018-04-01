@@ -1,0 +1,301 @@
+<main class="home-naologado deslogado" ng-if="!safe.userResume.realizouPrimeiroAcesso" ng-init="home.init()">
+	<div class="container-fluid">
+		<div class="row">
+			<section class="bg-hero">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-md-8">
+							<div class="row">
+								<div class="col-md-8 my-4 box-subtitulo">
+									<!--<img src="assets/img/mercedesclub_white.png" class="mx-auto d-block club">-->
+									<p class="text-center my-md-5 font-35 font-corporate subtitulo">
+										Tem estrela, tem vantagens de verdade!<br />
+										Tem tudo de bom pra quem é do nosso clube!
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 login mt-0">
+							<form novalidate id="login" autocomplete="off" ng-submit="home.loginSubmit()">
+								<h2 class="font-corporate">Login</h2>
+								<p>Faça seu login no Mercedes Club e acesse a sua conta.</p>
+								<!--Faça seu login e entre para o Mercedes Club, o programa de fidelidade e recompensas da Mercedes-Benz. -->
+								<input required mask="999.999.999-99" ng-minlength="14" type="text" class="form-control" name="documento" placeholder="CPF"
+									ng-model="home.login.username" autocomplete="off">
+								<input required type="password" class="form-control" name="senha" placeholder="Senha" ng-model="home.login.password" autocomplete="off">
+								<button class="btn btn-info btn-block">Entrar</button>
+							</form>
+							
+							<form novalidate id="externalLogin" autocomplete="off" ng-submit="home.externalLoginSubmit()">
+								<p class="text-center">OU</p>
+								<div class="outros-logins">
+									<button class="btn btn-block btn-light fb">Login com Facebook</button>
+									<!--<button class="btn btn-block btn-light gplus">Login com Google</button>-->
+								</div>
+							</form>
+							
+							<div class="links-ajuda">
+								<a class="cinza-claro font-14" ui-sref="app.registerResume">Cadastre-se</a>
+								<a class="cinza-claro font-14" ui-sref="app.forgotPassword">Esqueci minha senha</a>
+							</div>
+							</sections>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<section class="funcionamento">
+				<div class="container">
+					<h2 class="font-corporate">Como funciona</h2>
+					<div class="owl-carousel owl-theme" id="funcionamento">
+						<div class="item">
+							<img src="assets/img/icon-7.png" alt="" class="mx-auto mb-4 d-block">
+							<h3 class="h4 font-20 azul-claro  font-corporate">Cadastre-se</h3>
+							<p class="font-14">Faça seu login e entre para o Mercedes Club, o programa de fidelidade e recompensas da Mercedes-Benz.</p>
+						</div>
+						<div class="item">
+							<img src="assets/img/icon02.png" alt="" class="mx-auto mb-4 d-block">
+							<h3 class="h4 font-20 azul-claro  font-corporate">Junte pontos</h3>
+							<p class="font-14">Compre peças, realize a manutenção ou reparo do seu veículo nos concessionários Mercedes-Benz e acumule muitos pontos.</p>
+						</div>
+						<div class="item">
+							<img src="assets/img/icon-5.png" alt="" class="mx-auto mb-4 d-block">
+							<h3 class="h4 font-20 azul-claro  font-corporate">Conquiste estrelas</h3>
+							<p class="font-14">Indique amigos, participe de treinamentos e pesquisas, mostre seu orgulho de rodar com um Mercedes-Benz.</p>
+						</div>
+						<div class="item">
+							<img src="assets/img/icon-6.png" alt="" class="mx-auto mb-4 d-block">
+							<h3 class="h4 font-20 azul-claro  font-corporate">Vantagens de verdade</h3>
+							<p class="font-14">Acumule pontos e troque por descontos em peças e serviços de manutenção. Ganhou estrelas, troque por benefícios exclusivos em parceiros.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--
+	<div class="container-fluid">
+		<div class="row">
+			<section class="noticias">
+				<div class="container">
+					<h2 class="font-corporate">Notícias</h2>
+					<div class="owl-carousel owl-theme" id="noticias">
+						<div class="item">
+							<a href="#">
+								<img src="assets/img/noticia-01.jpg" alt="" class="">
+								<h5>Veículos comerciais lideram as vendas em 2017</h5>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<img src="assets/img/noticia-02.jpg" alt="" class="">
+								<h5>115 caminhões de coleta de lixo para o Chile</h5>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<img src="assets/img/noticia-03.jpg" alt="" class="">
+								<h5>Mercedes-Benz na Fenatran 2017: veja como foi</h5>
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+								<img src="assets/img/noticia-04.jpg" alt="" class="">
+								<h5>TruckPad, o novo aplicativo de carga da Mercedes-Benz</h5>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	-->
+</main>
+<main class="home-logado" ng-if="safe.userResume.realizouPrimeiroAcesso" ng-init="home.tokenExists()">
+	<div class="container-fluid">
+		<div class="row">
+			<div id="carousel-mercedes" class="carousel slide" data-ride="carousel" style="width:100%;">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<a href="/#/como-funciona">
+							<!--<img class="d-block w-100" src="./assets/img/banner-logada.png" alt="First slide">-->
+							<img class="d-block w-100" src="./assets/img/banner-bem-vindo.jpg" alt="First slide">
+							<div class="carousel-caption d-none d-md-block">
+								<h2 class="font-corporate">Saiba como ganhar</h2>
+								<p>Clique aqui e veja como
+									<strong>acumular pontos</strong>
+									<br> e
+									<strong>conquistar estrelas.</strong>
+								</p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!--<a class="carousel-control-prev" href="#carousel-mercedes" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Anterior</span>
+				</a>
+				<a class="carousel-control-next" href="#carousel-mercedes" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Proximo</span>
+				</a>-->
+			</div>
+			<div class="legenda-mobile d-block d-sm-none">
+				<div class="container">
+					<h2 class="font-corporate">Saiba como ganhar.</h2>
+					<p>Clique aqui e veja como
+						<strong>acumular pontos</strong> e
+						<strong>conquistar estrelas.</strong>
+					</p>
+					<!--<button class="btn btn-info btn-lg leia-mais">Leia mais</button>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<section class="destaques">
+					<div class="row">
+						<div class="col-12 col-md-6 box-quest bx-aguarde">
+							<img src="./assets/img/group.png" alt="group" class="noum mx-auto d-md-block">
+							<h2 class="text-center d-none d-sm-block font-corporate">Missão na estrada</h2>
+							<p class="text-center d-none d-sm-block">Responda a nossa enquete<br />e conquiste mais estrelas.</p>
+						</div>
+						<div class="col-12 after after-left d-block d-sm-none">
+							<h2 class="text-left font-corporate">Missão na estrada</h2>
+							<p class="text-left">Responda a nossa enquete e conquiste mais estrelas.</p>
+						</div>
+						<div class="col-12 col-md-6 box-quiz text-white bx-aguarde">
+							<img src="./assets/img/agreement.png" class="noum mx-auto d-md-block">
+							<h2 class="text-center d-none d-sm-block font-corporate">Amigo indique amigo</h2>
+							<p class="text-center d-none d-sm-block">
+								e ganhe estrelas.</p>
+						</div>
+						<div class="col-12 after after-right d-block d-sm-none">
+							<h2 class="text-left font-corporate">Amigo indique amigo</h2>
+							<p class="text-left">
+									e ganhe estrelas.</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid d-none" ng-if="home.news.length">
+		<div class="row">
+			<section class="noticias">
+				<div class="container">
+					<h2 class="font-corporate">Notícias</h2>
+					<div class="owl-carousel owl-theme" id="noticias">
+						<div repeater-end class="item" ng-repeat="new in home.news track by $index">
+							<a ui-sref="app.newsSingle({ id : new.noticiaId })">
+								<img ng-src="{{ new.imagemThumbnail.url }}">
+								<h5>{{ new.titulo }}</h5>
+							</a>
+						</div>
+					</div>
+					<img src="./assets/img/hand.png" class="d-block d-sm-none hand">
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--
+	<section class="parceiros">
+		<h2 class="titulo font-corporate">Parceiros</h2>
+		<p>A cada estrela conquistada, uma vantagem de verdade. <br>
+		Conheça nossas empresas parceiras e os benefícios exclusivos pra você e sua família.</p>
+		<div class="col-md-9 offset-md-3">
+			<div class="row">
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-vivo.png" alt="Logo Vivo" class="mx-auto d-block vivo">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-pirelli.png" alt="Logo Pirelli" class="mx-auto d-block pirelli">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-metlife.png" alt="Logo MetLife" class="mx-auto d-block metlife">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-sem-parar.png" alt="Logo Sem Parar" class="mx-auto d-block semparar">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-truckpad.png" alt="Logo TruckPad" class="mx-auto d-block truckpad">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-shell.png" alt="Logo Shell" class="mx-auto d-block shell">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-fastshop.png" alt="Logo Fast Shop" class="mx-auto d-block fastshop">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-centauro.png" alt="Logo Centauro" class="mx-auto d-block centauro">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-casas-bahia.png" alt="Logo Casas Bahia" class="mx-auto d-block casasbahia">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-saraiva.png" alt="Logo Saraiva" class="mx-auto d-block saraiva">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-parque-monica.png" alt="Logo Parque da Mônica" class="mx-auto d-block monica">
+					</div>
+				</div>
+				<div class="col-md-1 col-4">
+					<div class="box-logo">
+						<img src="./assets/img/logo-natura.png" alt="Logo Natura" class="mx-auto d-block natura">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	-->
+</main>
+<div class="modal full-modal" tabindex="-1" role="dialog" id="modalLoginFailed" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-body text-center">
+				<div class="row">
+					<p class="text-center my-0">
+						<img src="assets/img/icon-alert.png" />
+					</p>					
+					<h5>Usuário ou senha inválido!</h5>
+				</div>
+				<div class="row">
+					<div class="col-md-2">&nbsp;</div>
+					<div class="col-md-8">
+						<button class="btn btn-info" onclick="$('#modalLoginFailed').modal('hide');">OK</button>
+					</div>
+					<div class="col-md-2">&nbsp;</div>
+				</div>
+				<!-- <button class="btn btn-light" ng-click="home.loginFailed()">Entendi</button> -->
+			</div>
+		</div>
+	</div>
+</div>

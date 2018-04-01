@@ -1,0 +1,19 @@
+<main class="noticia-single" ng-init="newsSingle.init()">
+	<div class="container-fluid">
+		<section class="descricao">
+			<div class="container">
+				<div class="row">
+					<a ui-sref="app.news">
+						<img src="./assets/img/backward.png" alt="Voltar" class="">
+					</a>
+				</div>
+				<div class="row">
+					<h1 class="font-corporate font-50">{{ newsSingle.data.titulo }}</h1>
+					<img ng-src="{{ newsSingle.data.imagemPrincipal.url }}" class="img-noticia img-fluid">
+					<p><strong>{{ newsSingle.data.subTitulo }}</strong></p>
+					<div ng-bind-html="newsSingle.data.conteudo"></div>
+				</div>
+			</div>
+		</section>
+	</div>
+</main>

@@ -1,0 +1,214 @@
+<main class="extrato-pontos" ng-init="simulator.init()">
+	<div class="container-fluid">
+		<div class="row bg-head">
+			<div class="menu-tabs">
+				<ul class="nav nav-pills">
+					<li class="nav-item">
+						<a class="nav-link active font-12" href="javascript:;">Extrato<br />de pontos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link font-12" href="javascript:;">Extrato<br />de estrelas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link font-12" href="javascript:;">Simulador</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="pontos" class="tela">
+		<div class="descricao">
+			<div class="container-fluid" ng-show="!simulado">
+				<div class="row">
+					<h1 class="font-corporate font-50 text-center">Em Breve</h1>
+				</div>
+			</div>
+			<div class="container-fluid" ng-show="simulado">
+				<div class="row">
+					<h1 class="font-corporate font-50 text-center">Extrato de Pontos</h1>
+					<p class="font-14">
+						<strong>Quem conhece a estrada merece descontos especiais em peças e serviços nos concessionários Mercedes-Benz.</strong>
+					</p>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="left">
+							<p class="font-14"><strong>Seu saldo de pontos é de:</strong></p>
+							<p class="pontos font-30">{{participantPoints}} pontos</p>
+							<p class="desc font-14">Que tal acessar o simulador? Lá você pode ver os<br />descontos de acordo com sua pontuação.</p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="right">
+							<p class="font-14"><strong>Pontos a vencer:</strong></p>
+							<p class="pontos font-30">000 pontos</p>
+							<p class="desc font-14">Faça agora mesmo o resgate! Ainda dá tempo<br />de aproveitar essa vantagem.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-md-12">
+						<p class="font-14">
+							<strong>Verifique abaixo seu extrato de pontos dos últimos 30 dias e aproveite essa vantagem de verdade.</strong>
+						</p>
+						<!--
+						<div class="dropdown">
+							<button class="btn dropdown-toggle" type="button" id="dropInicio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Últimos 30 dias
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropInicio">
+								<a class="dropdown-item" >Últimos 60 dias</a>
+								<a class="dropdown-item" >Últimos 90 dias</a>
+							</div>
+						</div>
+						-->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"> 
+						<div class="container table-responsive">
+							<table class="table table-hover table-sm font-14">
+								<thead>
+								<tr>
+									<th>Data</th>
+									<th>Descrição</th>
+									<th>Pontos</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>21/03/2018</td>
+									<td>Ativação no Programa</td>
+									<td>500 pts</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<div class="container-fluid d-none d-md-block">
+			<div class="row">
+				<section class="bg-caminhoes">
+					
+				</section>
+			</div>
+		</div>
+	</div>
+	<div id="estrelas" class="tela" style="display:none;">
+		<div class="descricao">
+			<div class="container-fluid" ng-show="!simulado">
+				<div class="row">
+					<h1 class="font-corporate font-50 text-center">Em Breve</h1>
+				</div>
+			</div>
+			<div class="container-fluid" ng-show="simulado">
+				<div class="row">
+					<h1 class="font-corporate font-50 text-center">Extrato de estrelas</h1>
+					<p class="font-14">
+						<strong>Contar estrelas é tudo de bom. A cada gesto, uma conquista.</strong>
+					</p>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="left">
+							<p class="font-14"><strong>Seu saldo de estrelas é de:</strong></p>
+							<p class="pontos font-30">{{participantStars}} estrelas</p>
+							<p class="desc font-14">Continue conquistando estrelas para brilhar ainda mais no nosso clube.</p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="right">
+							<p class="font-14"><strong>Estrelas a vencer:</strong></p>
+							<p class="pontos font-30">000 estrelas</p>
+							<p class="desc font-14">Resgate já e aproveite os descontos em nossos parceiros.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p class="font-14">
+							<strong>Verifique abaixo saldo de estrelas dos últimos 30 dias e aproveite os benefícios exclusivos do Mercedes Club.</strong>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"> 
+						<div class="container table-responsive">
+							<table class="table table-hover table-sm font-14">
+								<thead>
+								<tr>
+									<th>Data</th>
+									<th>Descrição</th>
+									<th>Estrelas</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>21/03/2018</td>
+									<td>Ativação no Programa</td>
+									<td>500</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid d-none d-md-block">
+			<div class="row">
+				<section class="bg-caminhoes">
+					
+				</section>
+			</div>
+		</div>
+	</div>
+	<div id="simulador" class="tela" style="display:none;">
+		<div class="descricao">
+			<div class="container-fluid" ng-show="!simulado">
+				<div class="row">
+					<h1 class="font-corporate font-50 text-center">Em Breve</h1>
+				</div>
+			</div>
+			<div class="container-fluid" ng-show="simulado">
+				<div class="row">
+					<h1 class="font-corporate font-50 text-center">Simulador de pontos</h1>
+					<p class="font-14">Vantagem de verdade é ter desconto em peças. Indique no campo abaixo quantos pontos você quer resgatar e veja o percentual de desconto que você ganha na compra de peças genuínas Mercedes-Benz. <strong>Lembre-se: quanto mais pontos para resgate, maior o desconto.</strong></p>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="container">
+							<div class="row row-eq-height">
+								<div class="col-md-4 offset-md-2 box mb-4">
+									<div class="box-calc-pontos">
+										<p><strong>Sua meta é de:</strong></p>
+										<p class="azul-claro font-30 blur">R$ 0.000,00</p>
+										<p><strong>*A meta estará disponível a partir do dia 05/04/2018</strong></p>
+									</div>
+								</div>
+								<div class="col-md-4 box mb-4">
+									<div class="box-calc-pontos">
+										<form>
+											<input type="text" class="form-control mt-0" name="" placeholder="000 pontos" ng-model="simulator.points">
+											<button class="btn btn-info btn-block mb-0" ng-click="simulator.calculator();">Calcular</button>
+											<p class="font-14 mt-3" ng-show="simulator.pointsConverted">Desconto de <span class="font-30">{{simulator.pointsConverted}}</span> em peças</p>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid d-none d-md-block">
+			<div class="row">
+				<section class="bg-caminhoes">
+					
+				</section>
+			</div>
+		</div>
+	</div>
+</main>

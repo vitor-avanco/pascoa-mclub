@@ -1,0 +1,32 @@
+<main class="faq" ng-init="faq.init()">
+	<div class="container-fluid">
+		<div class="row">
+			<section class="intro intro-hand logado">
+				<h1 class="font-corporate font-50">Dúvidas frequentes</h1>
+			</section>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<section class="descricao">
+				<div class="container">					
+					<div class="col-md-12 lista-duvidas">
+						<div class="duvida" ng-repeat="answer in faq.list track by $index">
+							<div class="titulo">
+								<div class="row">
+									<div class="col-9">
+										{{ answer.titulo }}
+									</div>
+									<div class="col-2 text-right px-0 py-0 mx-0 my-0">
+										<a href=".collapse-{{ $index }}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse1" class="botao"></a>
+									</div>
+								</div>						
+							</div>
+							<div class="mt-3 collapse conteudo collapse-{{ $index }}" ng-bind-html="answer.conteudo"></div>
+						</div>
+					</div>					
+				</div>
+			</section>
+		</div>
+	</div>
+</main>

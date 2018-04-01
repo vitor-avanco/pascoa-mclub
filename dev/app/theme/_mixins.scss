@@ -1,0 +1,107 @@
+/**
+  * @name Fonts
+  */
+@mixin font-source($font-family: false, $size: false, $colour: false, $weight: false,  $line-height: false) {
+    @if $font-family { font-family: $font-family; }
+    @if $size        { font-size:   $size;        }
+    @if $colour      { color:       $colour;      }
+    @if $weight      { font-weight: $weight;      }
+    @if $line-height { line-height: $line-height; }
+}
+
+/**
+  * @name Scaffolding
+  */
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+@mixin center {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+@mixin dynamic ($width: 100%, $height: 100%, $position: absolute, $top: 0, $left: 0) {
+    width: $width;
+    height: $height;
+    position: $position;
+    top: $top;
+    left: $left;
+}
+@mixin responsive-ratio($x, $y) {
+	padding-top: unquote(($y / $x) * 100 + '%');
+
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include size(100%, 100%);
+    }
+}
+
+/**
+  * @name Pseudo
+  */
+@mixin pseudo($display: block, $position: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $position;
+}
+@mixin triangle($color, $direction, $size: 6px){
+    width: 0;
+    height: 0;
+    @include pseudo($pos: $position);
+
+    @if $direction == up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round($size / 2.5);
+    }
+    @else if  $direction == left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+    @else if $direction == down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round($size / 2.5);
+    }
+    @else if $direction == right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    }
+}
+@mixin responsive-ratio($x, $y) {
+	padding-top: unquote(($y / $x) * 100 + '%' );
+
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include size(100%, 100%);
+    }
+}
+
+/**
+  * @name Effects
+  */
+@mixin hidden {
+	display: none;
+	visibility: hidden;
+}
+@mixin visible($state: 'block') {
+	display: unquote($state);
+	visibility: visible;
+}
+@mixin hardware($backface: true, $perspective: 1000) {
+    @include perspective($perspective);
+
+    @if $backface { @include backface-visibility(hidden); }
+}

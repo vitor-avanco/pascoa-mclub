@@ -1,0 +1,14 @@
+# Ignored folders
+/.sass-cache/
+/node_modules/
+
+# Ignored files
+/package-lock.json
+/dev/app/config/app.cache.js
+/dev/app/**/*.css
+/dev/app/**/*.map
+
+# Ignored extensions
+*.DS_Store
+*.lnk
+*.log

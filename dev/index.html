@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" ng-app="mercedes-clube-ui">
+    <head>
+        <!--
+        <script async="" src="//www.google-analytics.com/analytics.js"></script>
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script>
+        <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+        <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-5GW7CH8"></script>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TWZ6JMS');</script>
+        -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116577902-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-116577902-1');
+        </script>
+    
+        <base href="/">
+        <meta charset="utf-8">
+        <title>Mercedes Club</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <!--==== Assets ====-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/update-front.css">
+        <!--==== Assets ====-->
+
+        <!-- build:css app/app.bundle.css -->
+        <!--==== Styles ====-->
+        <link rel="stylesheet" href="./../node_modules/angular-loading-bar/build/loading-bar.min.css">
+        <link rel="stylesheet" href="./../node_modules/ng-notify/dist/ng-notify.min.css">
+        <link rel="stylesheet" href="./app/app.css">
+        <!--==== Styles ====-->
+        <!-- endbuild -->
+
+        <!--==== Assets ====-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="assets/js/owl.carousel.js"></script>
+        <script src="assets/js/script.js"></script>
+        <!--==== Assets ====-->
+
+        <!-- build:js app/app.bundle.js -->
+        <!--==== Libs ====-->
+        <script src="./../node_modules/angular/angular.min.js"></script>
+        <script src="./../node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="./../node_modules/angular-storage/dist/angular-storage.min.js"></script>
+        <script src="./../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="./../node_modules/angular-ui-router/release/stateEvents.min.js"></script>
+        <script src="./../node_modules/angular-input-masks/releases/angular-input-masks-standalone.js"></script>
+        <script src="./../node_modules/angular-loading-bar/build/loading-bar.min.js"></script>
+        <script src="./../node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+        <script src="assets/js/ng-mask.js"></script>
+        <script src="./../node_modules/ng-notify/dist/ng-notify.min.js"></script>
+        <!--==== Libs ====-->
+
+        <!--==== App ====-->
+        <script src="./app/app.modules.js"></script>
+        <script src="./app/config/app.cache.js"></script>
+        <script src="./app/config/app.config.js"></script>
+        <script src="./app/config/app.routes.js"></script>
+        <script src="./app/config/app.run.js"></script>
+        <script src="./app/constants/apis.constant.js"></script>
+        <script src="./app/constants/storage.constant.js"></script>
+        <script src="./app/services/feed.service.js"></script>
+        <script src="./app/services/send.service.js"></script>
+        <script src="./app/factories/storage.factory.js"></script>
+        <script src="./app/factories/carousel.factory.js"></script>
+        <script src="./app/directives/repeater-end.directive.js"></script>
+        <script src="./app/controllers/app/app.controller.js"></script>
+        <script src="./app/controllers/app/forgot-password/forgot-password.controller.js"></script>
+        <script src="./app/controllers/app/home/home.controller.js"></script>
+        <script src="./app/controllers/app/register/resume/resume.controller.js"></script>
+        <!-- <script src="./app/controllers/app/register/facebook/facebook.controller.js"></script> -->
+        <script src="./app/controllers/app/register/terms/terms.controller.js"></script>
+        <script src="./app/controllers/app/register/confirmation/confirmation.controller.js"></script>
+        <script src="./app/controllers/app/operation/operation.controller.js"></script>
+        <script src="./app/controllers/app/news/news.controller.js"></script>
+        <script src="./app/controllers/app/news/single/single.controller.js"></script>
+        <script src="./app/controllers/app/catalog/catalog.controller.js"></script>
+        <script src="./app/controllers/app/indication/indication.controller.js"></script>
+        <script src="./app/controllers/app/dealership/dealership.controller.js"></script>
+        <script src="./app/controllers/app/contact/contact.controller.js"></script>
+        <script src="./app/controllers/app/partness/partness.controller.js"></script>
+        <script src="./app/controllers/app/faq/faq.controller.js"></script>
+        <script src="./app/controllers/app/simulator/simulator.controller.js"></script>
+        <script src="./app/controllers/app/profile/profile.controller.js"></script>
+        <!--==== App ====-->
+        <!-- endbuild -->
+
+    </head>
+    <body>
+
+        <!--==== View ====-->
+        <ui-view></ui-view>
+        <!--==== View ====-->
+
+    </body>
+</html>

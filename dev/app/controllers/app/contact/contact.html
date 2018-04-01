@@ -1,0 +1,68 @@
+<main class="fale-conosco" ng-init="contact.init()">
+	<div class="container-fluid">
+		<div class="row">
+			<section class="intro intro-pessoas">
+				<h1 class="font-corporate font-50">Fale conosco</h1>
+				<p class="d-none d-sm-block font-14">O clube quer ouvir você. Digite seus dados e escreva sua mensagem: dúvidas, reclamações, elogios. Aguarde. Em breve,
+					a gente vai entrar em contato.</p>
+			</section>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<section class="descricao">
+				<div class="container">
+					<p class="d-sm-none text-center">O clube quer ouvir você.
+						<br> Digite seus dados e escreva sua mensagem: dúvidas, reclamações, elogios. Aguarde. Em breve, a gente vai entrar em
+						contato.</p>
+					<form novalidate autocomplete="off" name="contact.form" ng-submit="contact.submit()">
+						<div class="row">
+							<div class="col-md-4">
+								<input required type="text" name="" class="form-control" placeholder="Nome" ng-model="contact.fields.name">
+							</div>
+							<div class="col-md-4">
+								<input required type="email" name="" class="form-control" placeholder="E-mail" ng-model="contact.fields.email">
+							</div>
+							<div class="col-md-4">
+								<select required name="Assunto" class="form-control" ng-model="contact.fields.subject">
+									<option value="" selected disabled hidden>Assunto</option>
+									<option ng-repeat="subject in contact.subject track by $index" ng-value="subject.id">{{ subject.descricao }}</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<textarea required class="form-control" rows="4" placeholder="Mensagem" ng-model="contact.fields.description"></textarea>
+							</div>
+						</div>
+						<div class="col-md-4 offset-md-4">
+							<button class="btn btn-info btn-block" ng-disabled="contact.form.$invalid">Enviar</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="modal full-modal" tabindex="-1" role="dialog" id="modalContato" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="row">
+						<p class="text-center w-100 my-0">
+							<img src="assets/img/tick.png" />
+						</p>
+						<h2>
+							Sua mensagem foi enviada com sucesso!
+						</h2>
+					
+					</div>
+					<div class="row">
+						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-8">
+							<button class="btn btn-info" onclick="$('#modalContato').modal('hide');">OK</button>
+						</div>
+						<div class="col-md-2">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

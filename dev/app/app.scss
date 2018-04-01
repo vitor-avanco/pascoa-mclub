@@ -1,0 +1,150 @@
+@import
+"compass/css3";
+
+@import
+// "./theme/reset",
+"./theme/variables",
+"./theme/queries",
+"./theme/mixins";
+
+@media (min-width: 768px) {
+    .top-bar {
+        width: 75%;
+        height: 70px;
+        position: absolute;
+        top: 10px;
+        right: 1rem;
+    }
+    .welcome {
+        left: auto;
+        right: 0;
+    }
+    main.home-naologado .bg-hero {
+        background-position: center bottom !important;
+    }
+}
+
+@media (max-width: 768px) {
+    main.home-naologado {
+        .bg-hero {
+            background-position: 20% top !important;
+        }
+        .login {
+            margin-top: 370px;
+            padding: 10px 15px;
+        }
+    }
+}
+header nav .nav-superior .dropdown a {
+    color: #fff;
+}
+main.cadastro-naologado .outros-logins {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+.row.form-check.activation {
+    @include display-flex(flex !important);
+}
+.fale-conosco select.form-control:not([size]):not([multiple]) {
+    height: 48px;
+}
+.full-modal {
+    .modal-dialog {
+        width : 315px;
+        text-align : center;
+    }
+    h5 {
+        font-size : 25px;
+
+        + p {
+            width : 90%;
+            margin-left : auto;
+            margin-right : auto;
+        }
+    }
+    .modal-body {
+        padding : 30px 20px;
+    }
+    button {
+        width : 130px;
+    }
+}
+
+.temp {
+    background-image: url('../assets/img/banner08.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 100px 0 200px 0;
+    margin: 0 -15px;
+    width: calc(100% + 30px);
+}
+.cadastro {
+    padding-bottom: 40px;
+}
+.img-noticia.img-fluid {
+    width: 100%;
+
+    + p {
+        width: 100%;
+    }
+}
+main.home-logado .destaques .left {
+    background-image: url(../assets/img/banner-quiz.jpg);
+}
+main.home-logado .destaques .right {
+    background-image: url(../assets/img/banner-missao.jpg);
+}
+.ng-submitted {
+    .set-validation {
+        [required] {
+            &.ng-invalid {
+                border-color: red;
+            }
+            &.ng-valid,
+            &.ng-valid-br-phone-number {
+                border-color: green;
+            }
+            &.form-check-input {
+                &.ng-invalid {
+                    outline: 1px solid red;
+                }
+                &.ng-valid {
+                    outline: 1px solid green;
+                }
+            }
+            &.invalid {
+                border-color: red;
+            }
+        }
+        .panel,
+        .upload-field,
+        .password-confirmation {
+            border: 1px solid transparent;
+
+            &.invalid {
+                border-color: red;
+            }
+            &.valid {
+                border-color: green;
+            }
+        }
+        // .is-select.ng-valid-parse {
+        //     border-color: green;
+        // }
+        // .ng-not-empty {
+        //     &.valid {
+        //         border-color: green;
+        //     }
+        //     &.invalid {
+        //         border-color: red;
+        //     }
+        // }
+    }
+}
+.show-mobile {
+    display: none;
+
+    @media (max-width: 992px) {
+        display: block;
+    }
+}
