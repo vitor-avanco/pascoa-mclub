@@ -214,6 +214,24 @@ display: table !important; margin: 0 auto !important; background: #eee;
 	margin: auto;
 	max-width: 800px
 }
+.intro.bg-amigo{
+	background-image: url('/assets/img/bg-amigo.jpg'); 
+}
+main.como-funciona section.pontos ul.com-imagens{
+	margin-left: -15px;
+}
+main.como-funciona section.pontos ul.com-imagens li{
+	list-style: none;
+	text-align: center;
+	font-size: 15px;
+	line-height: 20px;
+	margin-bottom: 30px;
+}
+main.como-funciona section.pontos ul.com-imagens li img{
+	position: relative;
+	margin-bottom: 5px;
+	border: 1px solid #FFF;
+}
 @media only screen and (max-width: 768px) {
 	.requisitos-do-sistema{
 		display: none;
