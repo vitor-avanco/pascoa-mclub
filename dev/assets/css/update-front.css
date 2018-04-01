@@ -27,6 +27,9 @@
 * {
 	font-family: 'CorpoS', sans-serif !important;
 }
+a:hover{
+	color: #00adef;
+}
 .font-corporate {
 	font-family: 'CorporateACon-Reg', serif !important;
 } 
