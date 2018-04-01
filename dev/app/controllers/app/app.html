@@ -28,6 +28,7 @@
 												<a data-user-email="{{ safe.userResume.email }}" class="dropdown-toggle" href="#" role="button" id="dropdownUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Olá, <span class="destaque">{{ safe.userResume.nome }}</span></a>
 												<div class="dropdown-menu welcome" aria-labelledby="dropdownUsuario">
 													<a class="dropdown-item" ui-sref="app.profile" style="color:#000">Meu perfil</a>
+													<a href="#" class="dropdown-item" onclick="$('#modalMeuCodigo').modal(); return false;" style="color:#000">Meu Código</a>
 													<a class="dropdown-item" ui-sref="app.home" ng-click="app.logout()" style="color:#000">Sair</a>
 												</div>
 											</div>
@@ -317,6 +318,34 @@
 					<div class="row">
 						<div class="col-md-2">&nbsp;</div>
 						<div class="col-md-8"><button class="btn btn-info" onclick="$('#modalTermos').modal('hide');">Fechar</button></div>
+						<div class="col-md-2">&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id="modalMeuCodigo" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body text-center">
+					<div class="row">
+						<div class="col-md-12"><h5>Meu Código</h5></div>
+					</div>
+					<div class="row text-left py-3">
+						<div class="col-12">
+							<p>Seu código de usuário está localizado abaixo:</p>
+						</div>
+						<div class="col-12">
+							<p><strong>Nome: </strong> {XXXX}</p>
+							<p><strong>CPF: </strong> {XXX.XXX.XXX-XX}</p>
+						</div>
+						<div class="col-6 offset-3 border my-3 bg-light text-center px-3 py-3">
+							<strong>XXXXXX.xxx</strong>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">&nbsp;</div>
+						<div class="col-md-8"><button class="btn btn-info" onclick="$('#modalMeuCodigo').modal('hide');">Fechar</button></div>
 						<div class="col-md-2">&nbsp;</div>
 					</div>
 				</div>
