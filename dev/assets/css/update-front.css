@@ -211,6 +211,9 @@ display: table !important; margin: 0 auto !important; background: #eee;
     top: -69px;
 }
 @media only screen and (max-width: 768px) {
+	.requisitos-do-sistema{
+		display: none;
+	}
 	.logo-club.logo-club-menu{
 		display: none;
 	}
