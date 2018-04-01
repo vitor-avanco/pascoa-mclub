@@ -28,6 +28,12 @@
                 controller   : 'RegisterTermsController',
                 controllerAs : 'registerTerms'
             })
+            .state('app.regulamentoTerms', {
+                url          : '/regulamento',
+                templateUrl  : './app/controllers/app/regulamento/regulamento.html',
+                controller   : 'RegulamentoController',
+                controllerAs : 'regulamentoTerms'
+            })
             .state('app.registerResume', {
                 url          : '/cadastro',
                 templateUrl  : './app/controllers/app/register/resume/resume.html',
