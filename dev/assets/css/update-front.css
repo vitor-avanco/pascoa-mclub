@@ -212,7 +212,8 @@ display: table !important; margin: 0 auto !important; background: #eee;
 		display:none;
 	}
 	header .nav-header .logo-club {
-		padding-top:7px;
+		/* padding-top:7px; */
+		padding: 15px 0px;
 	}
 	.c-menu {
 		top:34px;
