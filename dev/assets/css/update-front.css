@@ -120,7 +120,7 @@ main.home-logado .destaques  .box-quiz .noum {
     top: 30px;
     text-align: center;
     color: #fff;
-    z-index: 99999999;
+    z-index: 9;
 }
 
 main.home-logado .carousel .carousel-caption {
@@ -216,7 +216,7 @@ display: table !important; margin: 0 auto !important; background: #eee;
 		padding: 15px 0px;
 	}
 	.c-menu {
-		top:34px;
+		top: 20px;
 	}
 	footer {
 		text-align: center;
